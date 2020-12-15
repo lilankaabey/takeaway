@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+}
+
+.sidebar {
+  background-color: var(--color-grey-light);
+  flex: 0 0 15%;
+
+  display: flex;
+  flex-direction: column;
+}

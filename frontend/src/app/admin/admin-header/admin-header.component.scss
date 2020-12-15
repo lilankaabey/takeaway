@@ -1,0 +1,25 @@
+.topbar-container {
+  background-color: var(--color-red-primary);
+  z-index: 20;
+}
+
+.topbar {
+  padding: 1rem 1.5rem;
+  height: 7.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  &__logo {
+    font-size: 1.6rem;
+    color: var(--color-white);
+
+  }
+
+  &__title-panel {
+    display: none;
+  }
+}
+
+

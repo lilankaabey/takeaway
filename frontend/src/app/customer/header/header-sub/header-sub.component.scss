@@ -1,0 +1,20 @@
+.subheader {
+
+  &__slope {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+    background: var(--color-red-primary);
+    height: 9vh;
+  }
+
+  &__image {
+    max-height: 65vh;
+    min-height: 47.8rem;
+    height: calc(100vh - 300px);
+    background-image: url('../../../../assets/images/users/burgers_desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 44%;
+    margin-top: -9vh;
+
+  }
+}

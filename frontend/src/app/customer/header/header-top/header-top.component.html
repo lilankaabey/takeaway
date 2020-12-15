@@ -1,0 +1,17 @@
+<div class="header-top">
+  <div class="header">
+    <h1 class="header__title">
+      Time to order food
+    </h1>
+    <h2 class="header__subtitle">
+      Find restaurants in your area
+    </h2>
+    <div class="header__search-panel">
+      <form name="deliveryareaform" class="formstyle" (ngSubmit)="onSubmit()" #locationFormEl="ngForm">
+        <input type="text" ngModel name="location">
+        <button class="" type="submit">Show</button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,106 @@
+.footer {
+  background-color: var(--color-grey-dark);
+}
+
+.footer-container {
+  width: 66rem;
+  margin: 0 auto;
+  padding: 5rem 0 0;
+}
+
+.takeaway-logo-box {
+  text-align: center;
+}
+
+.takeaway-logo {
+  height: 8rem;
+}
+
+.follow-us {
+  text-align: center;
+  padding: 1.5rem 0;
+
+  &__text {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-white);
+    padding-bottom: 1.5rem;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--color-white);
+    margin: 0 1.8rem;
+  }
+}
+
+.footer-items {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3rem;
+}
+
+.footer-item {
+  color: var(--color-white);
+
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1rem 3rem;
+    cursor: pointer;
+  }
+}
+
+.footer-nav {
+
+  font-size: 1.3rem;
+  list-style: none;
+  padding-top: 1.5rem;
+
+
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    display: block;
+    padding: 1rem 3rem;
+  }
+
+  &__link:hover {
+    text-decoration: underline;
+  }
+}
+
+.copyright {
+  position: relative;
+  padding: 3rem 0;
+  margin-top: 3rem;
+  text-align: center;
+
+  &__text {
+    font-size: 1.3rem;
+    color: var(--color-white);
+    display: block;
+  }
+}
+
+.copyright::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.8px;
+  width: 100%;
+  background-color: var(--color-white);
+
+
+}
