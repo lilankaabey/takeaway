@@ -7,9 +7,12 @@
       Find restaurants in your area
     </h2>
     <div class="header__search-panel">
-      <form name="deliveryareaform" class="formstyle" (ngSubmit)="onSubmit()" #locationFormEl="ngForm">
-        <input type="text" ngModel name="location">
-        <button class="" type="submit">Show</button>
+      <form name="deliveryareaform" class="form-location" (ngSubmit)="onSubmit()" #locationFormEl="ngForm">
+        <svg class="form-location__icon">
+          <use xlink:href="./assets/images/sprite.svg#icon-location_on"></use>
+        </svg>
+        <input class="form-location__input" type="text" ngModel name="location" placeholder="Address, i.e. Matara">
+        <button class="form-location__button" type="submit">Show</button>
       </form>
     </div>
   </div>
