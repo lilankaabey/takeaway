@@ -8,6 +8,7 @@ import { FoodsComponent } from './admin/foods/foods.component';
 import { FoodListComponent } from './admin/foods/food-list/food-list.component';
 import { FoodEditComponent } from './admin/foods/food-edit/food-edit.component';
 import { FoodDetailComponent } from './admin/foods/food-detail/food-detail.component';
+import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,14 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: HomeComponent }
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'search-reasult',
+        component: RestaurantsListComponent
+      }
     ]
   },
   {

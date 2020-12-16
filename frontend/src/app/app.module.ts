@@ -22,6 +22,11 @@ import { HeaderSubComponent } from './customer/header/header-sub/header-sub.comp
 import { HeaderTopComponent } from './customer/header/header-top/header-top.component';
 import { TopbarComponent } from './customer/header/topbar/topbar.component';
 import { FormsModule } from '@angular/forms';
+import { RestaurantComponent } from './restaurant/restaurant.component';
+import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductComponent } from './product/product.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { FormsModule } from '@angular/forms';
     HeaderContainerComponent,
     HeaderSubComponent,
     HeaderTopComponent,
-    TopbarComponent
+    TopbarComponent,
+    RestaurantComponent,
+    RestaurantsListComponent,
+    ProductsListComponent,
+    ProductComponent,
+    ProductInfoComponent
   ],
   imports: [
     BrowserModule,
