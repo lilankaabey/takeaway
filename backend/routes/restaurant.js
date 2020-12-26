@@ -5,10 +5,7 @@ const restaurantController = require('../controller/restaurant');
 
 const router = express.Router();
 
-//GET /restaurant/foods
-// router.get('/foods', restaurantController.getFoods);
 
-// router.post('/food', restaurantController.createFood);
 
 //GET /admin/restaurants   ::to get all restaurants 
 router.get('/restaurants', restaurantController.getRestaurants);
@@ -23,7 +20,7 @@ router.post('/add-restaurant', restaurantController.addRestaurant);
 router.put('/edit-restaurant/:restaurantId', restaurantController.updateRestaurant);
 
 //DELETE /admin/delete-restaurant/::restaurantId  ::to delete a single restaurant
-router.delete('/delete-restaurant/::restaurantId', restaurantController.deleteRestaurant);
+router.delete('/delete-restaurant/:restaurantId', restaurantController.deleteRestaurant);
 
 
 
