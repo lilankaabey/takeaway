@@ -1,1 +1,63 @@
-<p>dashboard works!</p>
+<div class="container" *ngIf="isAdmin">
+  <div class="element__row">
+    <div class="element__box">
+      <div class="element__number"><p>{{restaurants.length}}</p></div>
+      <div class="element__name"><p>Restaurants</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>Customers</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0.00</p></div>
+      <div class="element__name"><p>Total Income</p></div>
+    </div>
+  </div>
+  <div class="element__row">
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>New Orders</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>Get Orders</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>Deliverd Orders</p></div>
+    </div>
+  </div>
+
+</div>
+<!-- For System -->
+<div class="container" *ngIf="!isAdmin">
+  <div class="element__row">
+    <div class="element__box">
+      <div class="element__number"><p>{{products.length}}</p></div>
+      <div class="element__name"><p>Products</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>Customers</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0.00</p></div>
+      <div class="element__name"><p>Total Income</p></div>
+    </div>
+  </div>
+  <div class="element__row">
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>New Orders</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>Delivered Orders</p></div>
+    </div>
+    <div class="element__box">
+      <div class="element__number"><p>0</p></div>
+      <div class="element__name"><p>Confirmed Orders</p></div>
+    </div>
+  </div>
+
+</div>

@@ -8,6 +8,9 @@ const multer = require('multer');
 const MONGODB_URI = 'mongodb+srv://lilanka:fgReZdY1mrSUnALO@cluster0-czfs4.mongodb.net/takeaway?retryWrites=true&w=majority'
 
 const restaurantRoutes = require('./routes/restaurant');
+const productRoutes = require('./routes/product');
+const authRoutes = require('./routes/auth');
+const customerRoute = require('./routes/customer');
 
 const app = express();
 
@@ -47,7 +50,7 @@ const fileFilter = (req, file, cb) => {
 //To access request body
 app.use(bodyParser.json());
 //To register the multer
-app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'));
+app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('imagePath'));
 
 
 
@@ -63,22 +66,25 @@ app.use((req, res, next) => {
   );
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Content-Type, Authorization"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
   next();
 });
 
-//app.use('/restaurant', restaurantRoutes);
 
 
 app.use('/admin', restaurantRoutes);
+app.use('/system', productRoutes);
+app.use('/auth', authRoutes);
+app.use('/customer', customerRoute);
 
 //register express error handeling middleware
 app.use((error, req, res, next) => {
   console.log(error);
   const status = error.statusCode || 500;
   const message = error.message;
-  res.status(status).json({message: message});
+  const data = error.data;
+  res.status(status).json({message: message, data: data });
 });
 
 

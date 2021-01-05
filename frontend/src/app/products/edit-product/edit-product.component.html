@@ -1,0 +1,31 @@
+<div class="add-product-container">
+  <form (ngSubmit)="onAddProduct()" [formGroup]="productForm" class="formProduct">
+    <div class="formProduct__group-style">
+      <div class="formProduct__group">
+        <label for="name" class="formProduct__lable">Product Name:</label>
+        <input type="text" class="formProduct__input" id="name" name="name" formControlName="name">
+      </div>
+      <div class="formProduct__group">
+        <label for="category" class="formProduct__lable">Category:</label>
+        <select class="formProduct__select" name="category" id="category" formControlName="category">
+          <option value="Rice">Rice</option>
+          <option value="Noodles">Noodles</option>
+          <option value="kottu">Kottu</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Burger">Burger</option>
+        </select>
+      </div>
+    </div>
+    <div class="formProduct__group">
+      <label for="price" class="formProduct__lable">Price (Rs.):</label>
+      <input type="number" class="formProduct__input" id="price" name="price" formControlName="price">
+    </div>
+
+    <div class="formProduct__group">
+      <label for="description" class="formProduct__lable">Description:</label>
+      <textarea class="formProduct__textarea" type="text" id="description" name="description" rows="4" cols="50" formControlName="description"></textarea>
+    </div>
+
+    <button class="formProduct__button" type="submit" [disabled]="!productForm.valid">{{ buttonValue }}</button>
+  </form>
+</div>

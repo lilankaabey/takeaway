@@ -1,0 +1,20 @@
+<div class="productInfo__container">
+  <div class="productInfo__box">
+    <div class="productInfo__title">Name: </div>
+    <div class="productInfo__value">{{productInfo.name}}</div>
+  </div>
+  <div class="productInfo__box">
+    <div class="productInfo__title">Category: </div>
+    <div class="productInfo__value">{{productInfo.category}}</div>
+  </div>
+  <div class="productInfo__box">
+    <div class="productInfo__title">Price (Rs.): </div>
+    <div class="productInfo__value">{{productInfo.price}}</div>
+  </div>
+  <div class="productInfo__box">
+    <div class="productInfo__title">Description: </div>
+    <div class="productInfo__value">{{productInfo.description}}</div>
+  </div>
+
+  <button (click)="onEditInfo()" class="productInfo__button">Edit</button>
+</div>

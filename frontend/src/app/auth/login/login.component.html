@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="form__title-box">
+    <p class="form__title">Log In</p>
+  </div>
+  <form class="form" (ngSubmit)="onLogin(loginFormElem)" #loginFormElem="ngForm">
+    <div class="form__group">
+      <label for="email" class="label">Email:</label>
+      <input type="email" class="input" id="email" name="email" ngModel required email #email="ngModel">
+      <span class="form__error" *ngIf="!email.valid && email.touched">*Please enter a valid email.</span>
+    </div>
+    <div class="form__group">
+      <label for="password" class="label">Password:</label>
+      <input type="password" class="input" id="password" name="password" ngModel required #password="ngModel" minlength="8">
+      <span class="form__error" *ngIf="!password.valid && password.touched">*Password must be contained at least 8 characters.</span>
+    </div>
+    <div class="form__group btn-box">
+      <button class="button" type="submit" [disabled]="!loginFormElem.valid">Log in</button>
+    </div>
+  </form>
+  <div class="link-box">
+    <a (click)="onNavigate()" class="link">Sign Up</a>
+  </div>
+
+
+</div>
+

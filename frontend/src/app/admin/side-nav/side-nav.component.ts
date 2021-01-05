@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
+import { ProductService } from 'src/app/products/product.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  constructor() { }
+  isAdminLogedIn: boolean;
+
+  restaurantId: string;
+
+  constructor(
+    private authService: AuthService,
+    private productService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.isAdminLogedIn = (this.authService.getUserType() === 'admin') ? true : false;
+    this.restaurantId = this.authService.getRestaurantId();
+    console.log(this.restaurantId);
   }
+  ////////////////////
+  // System Area//////
+  onViewProfile() {
+    this.restaurantId = this.authService.getRestaurantId();
+    this.router.navigate(['system/profile/', this.restaurantId]);
+    console.log(this.restaurantId);
+  }
+
+  onEditProfile() {
+    this.restaurantId = this.authService.getRestaurantId();
+    this.router.navigate(['/profile/edit', this.restaurantId]);
+  }
+
+
+  //// End System Area ////
 
 }

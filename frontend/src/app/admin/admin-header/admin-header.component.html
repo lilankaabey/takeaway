@@ -1,7 +1,18 @@
 <div class="topbar-container">
   <div class="topbar">
-    <div class="topbar__logo">takeaway</div>
-    <div class="topbar__title-panel">TitlePanel</div>
-    <div class="navigation">Navigation</div>
+    <div class="topbar__logo"><a href="#"><img src="./assets/images/users/main_logo_footer.png" alt="" class="topbar__logo"></a></div>
+
+    <nav class="navigation">
+      <div class="navigation__icon-box" >
+        <svg class="navigation__icon" *ngIf="!userIsAuthenticated">
+          <use xlink:href="./assets/images/sprite.svg#icon-menu"></use>
+        </svg>
+        <button class="logout__button" *ngIf="userIsAuthenticated" type="button" (click)="onLogout()">Logout
+          <svg class="logout__icon" >
+            <use xlink:href="./assets/images/sprite.svg#icon-logout"></use>
+          </svg>
+        </button>
+      </div>
+    </nav>
   </div>
 </div>

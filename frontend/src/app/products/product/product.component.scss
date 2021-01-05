@@ -1,0 +1,120 @@
+///////////////////////////////////////////////////
+//////////// Admin-Restaurant-Area ////////////////
+
+.admin-product{
+  &__container {
+    display: flex;
+    width: 80rem;
+    background-color: var(--color-orange-light);
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-grey-light);
+  }
+
+  &__details {
+    font-size: 1.4rem;
+    color: var(--color-grey-dark);
+    font-weight: 200;
+  }
+
+  &__index {
+    padding: 1rem;
+  }
+
+  &__name {
+    padding: 1rem;
+  }
+
+  &__function {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.function {
+
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0 1rem;
+  }
+}
+
+
+
+// /////////////////////////////
+/// User Area /////////////////
+////////////////////////////////
+.product {
+
+  &__link,
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__link:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
+  &__container {
+    border: 1px solid var(--color-grey-light);
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-orange-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:last-child {
+      margin-bottom: 2rem;
+     }
+
+    &:hover {
+      background-color: var(--color-grey-light-2);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &__icon {
+    fill: var(--color-blue-light);
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  &__category {
+    font-family: inherit;
+    font-size: 1.3rem;
+  }
+
+  &__description {
+    font-family: inherit;
+    font-size: 1.3rem;
+  }
+
+  &__price {
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: var(--color-red-primary);
+  }
+
+
+
+}

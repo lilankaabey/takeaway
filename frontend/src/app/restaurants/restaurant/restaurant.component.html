@@ -1,0 +1,22 @@
+<!-- User-Restaurent-Area -->
+<a (click)="onRestaurantSelected(restaurant._id)" class="restaurant__link">
+  <div class="restaurant__container">
+    <div class="restaurant__image-box">
+      <img class="restaurant__image" src="http://localhost:3000/{{ restaurant.imagePath }}" alt="{{ restaurant.restaurantName }}">
+    </div>
+    <div class="restaurant__details">
+      <span class="restaurant__name">{{ restaurant.restaurantName }}</span>
+      <span class="rastaurant__description">
+        {{ restaurant.description}}
+      </span>
+      <div class="restaurant__delivery-details">
+        <span class="delivery__time">Delivery Time: {{ restaurant.deliveryTime}}</span>
+        <span class="delivery__status">Delivery Cost: {{ restaurant.deliveryStatus}}</span>
+        <span class="delivery__minimum">Minimum Amount (Rs.): {{ restaurant.minAmount}}.00</span>
+      </div>
+
+    </div>
+  </div>
+</a>
+
+

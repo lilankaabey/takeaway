@@ -1,0 +1,52 @@
+<div class="restaurantInfo__container">
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Restaurant Name: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.restaurantName}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Owner Name: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.ownerName}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Email: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.email}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Image: </div>
+    <div class="restaurantInfo__value"><img style="width: 200px; height: 200px" src="http://localhost:3000/{{restaurantInfo.imagePath}}" alt=""></div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Town: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.town}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Street: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.street}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">House Number: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.houseNumber}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Contact Number: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.contactNumber}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Delivery Time: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.deliveryTime}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Delivery Status: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.deliveryStatus}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Minimum Amount: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.minAmount}}</div>
+  </div>
+  <div class="restaurantInfo__box">
+    <div class="restaurantInfo__title">Description: </div>
+    <div class="restaurantInfo__value">{{restaurantInfo.description}}</div>
+  </div>
+
+  <button (click)="onEditInfo()" class="restaurantInfo__button">Edit</button>
+</div>

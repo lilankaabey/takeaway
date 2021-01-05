@@ -1,0 +1,112 @@
+// Login
+
+.container {
+  padding-top: 4rem;
+}
+
+.form {
+
+  &__title-box {
+    background-color: var(--color-grey-dark);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+
+  &__group {
+    padding: 1rem 1.5rem;
+  }
+
+  &__error {
+    font-size: 0.9rem;
+    color: var(--color-red-primary);
+  }
+}
+
+.input {
+  font-size: 1.3rem;
+  font-family: inherit;
+  padding: 1rem 1.2rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-grey-light);
+  width: 100%;
+  display: block;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(var(--color-grey-dark), .1);
+    border: 1px solid var(--color-grey-dark);
+  }
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid var(--color-red-primary);
+}
+
+.label {
+  font-size: 1.3rem;
+  font-family: inherit;
+  color: var(--color-grey-dark);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  color: var(--color-white);
+  background-color: var(--color-blue-1);
+  padding: 1rem 2rem;
+  width: 100%;
+
+  &:focus {
+      outline: none;
+  }
+
+  &:hover {
+    background-color: var(--color-blue-2);
+  }
+
+  &:disabled {
+    background-color: rgba(21, 114, 245, 0.445);
+  }
+}
+
+.btn-box {
+  padding-top: 2rem;
+}
+
+.link-box {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: var(--color-blue-1);
+  font-size: 1.2rem;
+  text-decoration: underline;
+  display: block;
+  cursor: pointer;
+
+  &:link,
+  &:visited {
+    color: var(--color-blue-1);
+    font-size: 1.2rem;
+    text-decoration: underline;
+    display: block;
+  }
+
+  &:hover {
+    color: var(--color-blue-2);
+  }
+}

@@ -1,0 +1,30 @@
+.topbar-container {
+  background-color: var(--color-grey-dark);
+  z-index: 20;
+  // position: fixed;
+  width: 100vw;
+}
+
+.topbar {
+  padding: 0rem 1.5rem;
+  height: 5.5rem;
+  width: 66rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.copyright {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  &__text {
+    font-size: 1.3rem;
+    color: var(--color-white);
+    display: block;
+  }
+}

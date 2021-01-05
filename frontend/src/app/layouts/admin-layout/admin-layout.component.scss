@@ -3,9 +3,51 @@
 }
 
 .sidebar {
-  background-color: var(--color-grey-light);
-  flex: 0 0 15%;
+  position: relative;
+  flex: 0 0 20%;
 
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 12rem);
 }
+
+.sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background-color: var(--color-grey-light);
+}
+
+.side-container {
+  padding: 1rem;
+  flex-grow: 1;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1px;
+    background-color: var(--color-grey-light);
+  }
+}
+
+
+/* /////////////////////
+ Authuntication Area
+//////////////////////// */
+.auth-content {
+  max-width: 50rem;
+  margin: 0 auto;
+  height: calc(100vh - 13rem);
+}
+
+
+
+
+

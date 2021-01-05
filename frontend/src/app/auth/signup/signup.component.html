@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="form__title-box">
+    <p class="form__title">Sign Up</p>
+  </div>
+  <form class="form" (ngSubmit)="onSubmit(signupFormElem)" #signupFormElem ="ngForm">
+    <div class="form__group">
+      <label for="email" class="label">Email: </label>
+      <input type="email" class="input" id="email" name="email" ngModel required email #email="ngModel">
+      <span class="form__error" *ngIf="!email.valid && email.touched">*Please enter a valid email.</span>
+    </div>
+    <div class="form__group">
+      <label for="password" class="label">Password:</label>
+      <input type="password" class="input" id="password" name="password" ngModel required #password="ngModel" minlength="8">
+      <span class="form__error" *ngIf="!password.valid && password.touched">*Password must be contained at least 8 characters.</span>
+    </div>
+    <div class="form__group">
+      <label for="re-password" class="label">Confirm Password:</label>
+      <input type="password" class="input" id="re-password" name="re-password" ngModel required #re_password="ngModel" minlength="8"
+        [ngStyle]="{'border':  ((re_password.value !== password.value) && re_password.touched) ? '1px solid red': '1px solid var(--color-grey-dark)'}">
+      <span class="form__error" *ngIf="(password.value !== re_password.value) && re_password.touched">*Password is not matched.</span>
+    </div>
+    <div class="form__group">
+      <button class="button" type="submit" [disabled]="!signupFormElem.valid">Sign up</button>
+    </div>
+  </form>
+  <div class="link-box">
+    <a (click)="onNavigate()" class="link">Log In</a>
+  </div>
+
+</div>
+

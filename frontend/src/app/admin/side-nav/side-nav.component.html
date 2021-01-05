@@ -1,6 +1,6 @@
-<ul class="side-nav">
+<ul class="side-nav" *ngIf="isAdminLogedIn">
     <li class="side-nav__item side-nav__item--active">
-        <a href="#" class="side-nav__link">
+        <a href="#" class="side-nav__link" [routerLink]="['/admin']" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">
             <svg class="side-nav__icon">
                 <use xlink:href="assets/images/sprite.svg#icon-dashboard"></use>
             </svg>
@@ -9,20 +9,96 @@
     </li>
 
     <li class="side-nav__item">
-        <a href="#" class="side-nav__link">
-            <svg class="side-nav__icon">
-                <use xlink:href="assets/images/sprite.svg#icon-delivery_dining"></use>
-            </svg>
-            <span>Orders</span>
-        </a>
+      <a href="#" class="side-nav__link" [routerLink]="['restaurants']" routerLinkActive="activeLink">
+          <svg class="side-nav__icon">
+              <use xlink:href="assets/images/sprite.svg#icon-restaurant"></use>
+          </svg>
+          <span>Restaurants</span>
+      </a>
     </li>
 
     <li class="side-nav__item">
-        <a href="#" class="side-nav__link">
-            <svg class="side-nav__icon">
-                <use xlink:href="assets/images/sprite.svg#icon-fastfood"></use>
-            </svg>
-            <span>Foods</span>
-        </a>
+      <a href="#" [routerLink]="['restaurant/add']" routerLinkActive="activeLink" class="side-nav__link">
+          <svg class="side-nav__icon">
+              <use xlink:href="assets/images/sprite.svg#icon-add_box"></use>
+          </svg>
+          <span>Add Restaurant</span>
+      </a>
     </li>
+
+    <li class="side-nav__item">
+      <a href="#" [routerLink]="['customers']" routerLinkActive="activeLink" class="side-nav__link">
+          <svg class="side-nav__icon">
+              <use xlink:href="assets/images/sprite.svg#icon-person"></use>
+          </svg>
+          <span>Customers</span>
+      </a>
+    </li>
+
+    <li class="side-nav__item">
+      <a href="#" [routerLink]="['orders']" routerLinkActive="activeLink" class="side-nav__link">
+          <svg class="side-nav__icon">
+              <use xlink:href="assets/images/sprite.svg#icon-delivery_dining"></use>
+          </svg>
+          <span>Orders</span>
+      </a>
+    </li>
+</ul>
+
+
+<!-- System Login //////////////////////////// -->
+
+<ul class="side-nav" *ngIf="!isAdminLogedIn">
+  <li class="side-nav__item side-nav__item--active">
+      <a href="#" class="side-nav__link" [routerLink]="['/system']" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}">
+          <svg class="side-nav__icon">
+              <use xlink:href="assets/images/sprite.svg#icon-dashboard"></use>
+          </svg>
+          <span>Dashboard</span>
+      </a>
+  </li>
+
+  <li class="side-nav__item">
+    <a href="#" class="side-nav__link" [routerLink]="['products']" routerLinkActive="activeLink">
+        <svg class="side-nav__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-restaurant"></use>
+        </svg>
+        <span>Products</span>
+    </a>
+  </li>
+
+  <li class="side-nav__item">
+    <a href="#" [routerLink]="['product/add']" routerLinkActive="activeLink" class="side-nav__link">
+        <svg class="side-nav__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-add_box"></use>
+        </svg>
+        <span>Add Product</span>
+    </a>
+  </li>
+
+
+  <li class="side-nav__item">
+    <a [routerLink]="['orders']" routerLinkActive="activeLink" class="side-nav__link">
+        <svg class="side-nav__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-delivery_dining"></use>
+        </svg>
+        <span>Orders</span>
+    </a>
+  </li>
+  <li class="side-nav__item">
+    <a (click)="onViewProfile()" routerLinkActive="activeLink" class="side-nav__link">
+        <svg class="side-nav__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-person"></use>
+        </svg>
+        <span>Profile</span>
+    </a>
+  </li>
+  <li class="side-nav__item">
+    <a  routerLinkActive="activeLink" [routerLink]="['profile/edit', restaurantId]" class="side-nav__link">
+        <svg class="side-nav__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-create"></use>
+        </svg>
+        <span>Edit Profile</span>
+    </a>
+  </li>
 </ul>

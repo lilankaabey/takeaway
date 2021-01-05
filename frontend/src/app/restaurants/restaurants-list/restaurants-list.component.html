@@ -1,0 +1,75 @@
+<!--
+  ///////////////////////////
+  Customer-Restaurants-List-Area
+  ///////////////////////////
+-->
+
+<div class="restaurants" *ngIf="!isAdminLogIn">
+  <div class="restaurants__header">
+    <p>Order from {{searchRestaurants.length}} restaurants</p>
+  </div>
+  <div class="restaurants__category">
+    <ul class="category__nav">
+      <li class="category__item">
+        <a href="" class="category__link">All</a>
+      </li>
+      <li class="category__item">
+        <a href="" class="category__link">Thai</a>
+      </li>
+      <li class="category__item">
+        <a href="" class="category__link">Pizza</a>
+      </li>
+      <li class="category__item">
+        <a href="" class="category__link">Burger</a>
+      </li>
+    </ul>
+  </div>
+  <div class="restaurants__list">
+    <app-restaurant
+      *ngFor="let restaurant of searchRestaurants; index as i"
+      [restaurant]="restaurant"></app-restaurant>
+  </div>
+</div>
+
+<!--
+  ///////////////////////////
+  Admin-Restaurants-List-Area
+  ///////////////////////////
+-->
+
+<div *ngIf="isAdminLogIn" class="admin-restaurants-container">
+  <div class="admin-restaurant-button-box">
+    <button class="add-restaurant-btn" (click)="onAddRestaurant()">Add Restaurant</button>
+  </div>
+
+  <!-- Restaurant List Array -->
+  <div class="restaurantList__container" *ngFor="let restaurant of restaurants; index as i">
+    <div class="admin-restaurant__container">
+
+      <div class="admin-restaurant__details">
+        <span class="admin-restaurant__index">{{i + 1}}</span>
+        <span class="admin-restaurant__name">{{ restaurant.restaurantName }}</span>
+      </div>
+
+      <div class="admin-restaurant__function">
+        <a class="function__link" [routerLink]="['/admin/restaurant', restaurant._id]">
+          <svg class="function__icon" style="fill: green;">
+              <use xlink:href="assets/images/sprite.svg#icon-info"></use>
+          </svg>
+        </a>
+        <a href="#" class="function__link" [routerLink]="['/admin/restaurant/edit', restaurant._id]">
+          <svg class="function__icon" style="fill: blue;">
+              <use xlink:href="assets/images/sprite.svg#icon-create"></use>
+          </svg>
+        </a>
+        <a href="#" class="function__link">
+          <svg class="function__icon" style="fill: red;">
+              <use xlink:href="assets/images/sprite.svg#icon-delete"></use>
+          </svg>
+        </a>
+      </div>
+  </div>
+  <!-- <app-restaurant
+    *ngFor="let restaurantElem of restaurants; index as i"
+    [restaurant]="restaurantElem" [index]="i"></app-restaurant> -->
+</div>

@@ -1,0 +1,100 @@
+<div class="add-restaurant-container">
+  <form (ngSubmit)="onAddRestaurant()" [formGroup]="restaurantForm" class="formRestaurant">
+    <div class="formRestaurant__group-style">
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="owner_name">Owner Name:</label>
+        <input class="formRestaurant__input" type="text" id="owner_name" name="owner_name" formControlName="owner_name">
+      </div>
+
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="restaurant_email">Email:</label>
+        <input class="formRestaurant__input" type="email" id="restaurant_email" name="restaurant_email" formControlName="restaurant_email" [(ngModel)]="confirmEmail">
+      </div>
+    </div>
+
+    <div class="formRestaurant__group-style">
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="login_email">Login Email:</label>
+        <input class="formRestaurant__input" type="email" id="login_email" name="login_email" value="{{confirmEmail}}" disabled>
+      </div>
+
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="restaurant_password">Password:</label>
+        <input class="formRestaurant__input" type="password" id="restaurant_password" name="restaurant_password" formControlName="restaurant_password">
+      </div>
+    </div>
+
+    <div class="formRestaurant__group-style">
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="restaurant_name">Restaurant Name:</label>
+        <input class="formRestaurant__input" type="text" id="restaurant_name" name="restaurant_name" formControlName="restaurant_name">
+      </div>
+
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="imagePath">Image:</label>
+        <input class="formRestaurant__input" type="file" id="imagePath" (change)="onImagePicked($event)" name="imagePath">
+      </div>
+    </div>
+
+    <div class="formRestaurant__group-style">
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="town">Town:</label>
+        <input class="formRestaurant__input" type="text" id="town" name="town" formControlName="town">
+      </div>
+
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="street">Street:</label>
+        <input class="formRestaurant__input" type="text" id="street" name="street" formControlName="street">
+      </div>
+    </div>
+
+    <div class="formRestaurant__group-style">
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="house_number">House Number:</label>
+        <input class="formRestaurant__input" type="text" id="house_number" name="house_number" formControlName="house_number">
+      </div>
+
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="contact_number">Contact Number:</label>
+        <input class="formRestaurant__input" type="text" id="contact_number" name="contact_number" formControlName="contact_number">
+      </div>
+    </div>
+
+
+    <div class="formRestaurant__group-style">
+      <div class="formRestaurant__group">
+        <label class="formRestaurant__label" for="deli_time">Delivery Time:</label>
+        <select name="deli_time" id="deli_time" class="formRestaurnat__select" formControlName="deli_time">
+          <option value="11:00">11:00</option>
+          <option value="12:00">12:00</option>
+          <option value="13:00">13:00</option>
+          <option value="14:00">14:00</option>
+          <option value="15:00">15:00</option>
+          <option value="16:00">16:00</option>
+          <option value="17:00">17:00</option>
+        </select>
+      </div>
+
+        <div class="formRestaurant__group">
+          <label class="formRestaurant__label" for="deli_status">Delivery Costs:</label>
+          <select name="deli_status" id="deli_status" class="formRestaurnat__select" formControlName="deli_status">
+            <option value="Free">Free</option>
+          </select>
+        </div>
+    </div>
+    <div class="formRestaurant__group">
+      <label class="formRestaurant__label" for="min_amount">Minimum Amount (Rs.):</label>
+      <input class="formRestaurant__input" type="text" id="min_amount" name="min_amount" formControlName="min_amount">
+      <span *ngIf="!restaurantForm.get('min_amount').valid && restaurantForm.get('min_amount').touched">* Minimum Amound should be greater than Rs.100.00</span>
+    </div>
+
+
+    <div class="formRestaurant__group">
+      <label class="formRestaurant__label" for="description">Description</label>
+      <textarea class="formRestaurant__textarea" type="text" id="description" name="description" rows="4" cols="50" formControlName="description"></textarea>
+    </div>
+
+    <button class="formRestaurant__button" type="submit" [disabled]="!restaurantForm.valid">{{ buttonValue}}</button>
+
+  </form>
+</div>

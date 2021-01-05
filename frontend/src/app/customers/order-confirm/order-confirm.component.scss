@@ -1,0 +1,114 @@
+.container {
+  padding: 2rem 2rem;
+  min-height: calc(100vh - 12rem);
+}
+
+.heading {
+  &__1 {
+    font-family: inherit;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-grey-dark);
+    padding-bottom: 1rem;
+  }
+  &__2 {
+    font-family: inherit;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--color-grey-light);
+    padding-bottom: 1rem;
+  }
+  &__3 {
+    font-family: inherit;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--color-grey-light);
+    padding-bottom: 1rem;
+    padding-top: 3rem;
+  }
+  &__4 {
+    font-family: inherit;
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: var(--color-grey-dark);
+    padding-bottom: 1rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    & > p {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+    }
+    & > span {
+      display: block;
+      text-align: center;
+      font-size: 1.9rem;
+      color: var(--color-grey-light);
+      padding: 2rem 1rem;
+    }
+  }
+}
+
+.hr-box {
+  padding-bottom: 1rem;
+}
+
+.table-container {
+  width: 66rem;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+}
+
+table, th, td {
+  border: 1px solid var(--color-grey-light-2);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px;
+}
+
+th {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-grey-dark);
+}
+
+td {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-grey-dark);
+}
+
+.product {
+  text-align: left;
+}
+
+.quantity {
+  text-align: center;
+}
+
+.cost {
+  text-align: right;
+}
+
+.total {
+  &__name {
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-grey-dark);
+  }
+  &__cost {
+    text-align: right;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-grey-dark);
+  }
+}

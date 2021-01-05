@@ -1,0 +1,58 @@
+<!-- ////////////////////
+    Admin-Restaurant-Area
+ ///////////////////////-->
+ <div class="admin-product__container" *ngIf="isSystemLogIn">
+
+  <div class="admin-product__details">
+    <span class="admin-product__index"></span>
+    <span class="admin-product__name">{{ product.name }}</span>
+  </div>
+
+  <div class="admin-product__function">
+    <a href="#" class="function__link" [routerLink]="['../product', product._id]">
+      <svg class="function__icon" style="fill: green;">
+          <use xlink:href="assets/images/sprite.svg#icon-info"></use>
+      </svg>
+    </a>
+    <a href="#" class="function__link" [routerLink]="['../product/edit', product._id]">
+      <svg class="function__icon" style="fill: blue;">
+          <use xlink:href="assets/images/sprite.svg#icon-create"></use>
+      </svg>
+    </a>
+    <a href="#" class="function__link" (click)="onDeleteProduct(product._id)">
+      <svg class="function__icon" style="fill: red;">
+          <use xlink:href="assets/images/sprite.svg#icon-delete"></use>
+      </svg>
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ///////////////////////////////////
+    ///// Customer View Area ///////////
+    //////////////////////////////////// -->
+  <div *ngIf="!isSystemLogIn">
+    <a (click)="onProductSelected(product._id)" class="product__link">
+      <div class="product__container">
+        <div class="product__header">
+          <div class="product__name">
+            {{product.name}}
+          </div>
+          <svg class="product__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-add"></use>
+        </svg>
+        </div>
+
+        <div class="product__category">
+          Category: {{product.category}}
+        </div>
+        <div class="product__description">
+          {{product.description}}
+        </div>
+        <div class="product__price">
+          Rs. {{product.price}}.00
+        </div>
+      </div>
+    </a>
+  </div>

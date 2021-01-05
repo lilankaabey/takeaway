@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="cart__name"><span>Basket</span></div>
+  <div class="cart__orders" *ngIf="itemsDetails.length > 0">
+
+    <div class="cart__items" *ngFor="let item of itemsDetails">
+      <span class="cart__product">{{item.product.name}}</span>
+      <span class="cart_quantity">Q. x{{item.quantity}}</span>
+      <span class="cart_price">Rs. {{item.product.price}}.00</span>
+      <div class="cart__action">
+        <a (click)="onItemRemove()" class="cart__link">
+          <svg class="cart__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-remove"></use>
+          </svg>
+        </a>
+        <a (click)="onItemAdd()" class="cart__link">
+          <svg class="cart__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-add"></use>
+          </svg>
+        </a>
+        <a (click)="onItemDelete()" class="cart__link">
+          <svg class="cart__icon">
+            <use xlink:href="assets/images/sprite.svg#icon-delete_outline"></use>
+          </svg>
+        </a>
+      </div>
+
+      <span>Rs. {{item.productCost}}.00</span>
+
+    </div>
+
+  </div>
+  <div class="cart__empty" *ngIf="(itemsDetails.length < 1)">
+    <span>Add some tasty food from the menu and place your oder.</span>
+  </div>
+  <div class="cart__hr-box">
+    <hr class="cart__hr">
+  </div>
+
+  <div class="cart__total">
+    <span>Total:</span> <span>Rs. {{totalCost}}.00</span>
+  </div>
+  <div class="cart__hr-box">
+    <hr class="cart__hr">
+  </div>
+  <div class="cart__message" *ngIf="(!restaurantDetails) || restaurantDetails.minAmount > totalCost">
+    <span>You can't order yet. has set a minimum order amount of Rs.  {{restaurantDetails.minAmount}}.00 (excl. delivery cost).</span>
+  </div>
+  <div class="cart__button-box">
+    <button class="cart__button" (click)="onCartOrderSubmit()" [disabled]="(!restaurantDetails) || restaurantDetails.minAmount > totalCost" *ngIf="!isOrderFormView">
+      Order
+    </button>
+    <button class="cart__button" (click)="onCartOrderSubmit()" [disabled]="isOrderFormView" *ngIf="isOrderFormView">
+      Order
+    </button>
+  </div>
+</div>

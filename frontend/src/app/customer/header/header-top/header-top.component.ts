@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-top',
@@ -9,11 +10,19 @@ import { NgForm } from '@angular/forms';
 export class HeaderTopComponent implements OnInit {
   @ViewChild('locationFormEl', {static: false}) locationSearchForm: NgForm;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){}
+  onFindRestaurant(form: NgForm){
+    const location = form.value.location;
+    this.router.navigate(['search', location]);
+
+
+  }
 
 }

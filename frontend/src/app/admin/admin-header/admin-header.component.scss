@@ -1,5 +1,5 @@
 .topbar-container {
-  background-color: var(--color-red-primary);
+  background-color: var(--color-grey-dark);
   z-index: 20;
 }
 
@@ -12,14 +12,51 @@
   margin: 0 auto;
 
   &__logo {
+    height: 3rem;
     font-size: 1.6rem;
     color: var(--color-white);
 
   }
 
   &__title-panel {
-    display: none;
+    display: none
   }
 }
 
+.navigation {
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-white);
+  }
+}
 
+.logout {
+  &__button {
+    border: 1px solid var(--color-grey-light);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 200;
+    color: var(--color-white);
+    background-color: var(--color-grey-dark);
+    padding: .5rem .8rem;
+    display: flex;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color:  #24292eb7;
+    }
+  }
+
+  &__icon {
+    align-self: center;
+    margin-left: .6rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--color-white);
+  }
+}

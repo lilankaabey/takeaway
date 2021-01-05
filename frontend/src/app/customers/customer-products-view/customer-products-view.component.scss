@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.products-container {
+  flex-grow: 1;
+}
+
+.cart-container {
+  flex: 0 0 30%;
+  height: calc(100vh - 12rem);
+}
+
+.order-container {
+  flex-grow: 1;
+}

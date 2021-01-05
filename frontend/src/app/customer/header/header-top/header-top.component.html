@@ -7,7 +7,7 @@
       Find restaurants in your area
     </h2>
     <div class="header__search-panel">
-      <form name="deliveryareaform" class="form-location" (ngSubmit)="onSubmit()" #locationFormEl="ngForm">
+      <form name="deliveryareaform" class="form-location" (ngSubmit)="onFindRestaurant(locationFormEl)" #locationFormEl="ngForm">
         <svg class="form-location__icon">
           <use xlink:href="./assets/images/sprite.svg#icon-location_on"></use>
         </svg>

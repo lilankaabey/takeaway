@@ -1,6 +1,18 @@
 <app-admin-header></app-admin-header>
-<div class="content">
-  <app-side-nav class="sidebar"></app-side-nav>
+<!-- //////////////////////////////////////////////
+/////// Authuntication Area for Admin/System //////
+/////////////////////////////////////////////////// -->
+<div class="auth-content" *ngIf="isAuthMode">
   <router-outlet></router-outlet>
+</div>
+
+<!-- //// End - Authuntication Area for Admin ////  -->
+
+
+<div class="content" *ngIf="!isAuthMode">
+  <app-side-nav class="sidebar"></app-side-nav>
+  <div class="side-container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 <app-admin-footer></app-admin-footer>

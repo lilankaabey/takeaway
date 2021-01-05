@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Event, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-container',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderContainerComponent implements OnInit {
 
-  constructor() { }
+  isSearchMode = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
 }

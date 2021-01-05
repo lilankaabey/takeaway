@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const restaurant = require('../model/restaurant');
 
-// const { validationResult } = require('express-validator/check');
+// const { validationResult } = require('express-validator');
 
 const Restaurant = require('../model/restaurant');
+const user = require('../model/user');
 
 /////////////////////////////
 //// To get Restaurants /////
@@ -23,47 +23,6 @@ exports.getRestaurants = (req, res, next) => {
       next(err);
    });
 
-   /* const restaurants = [
-      {
-         _id: 'dajdq4a5d456addasd',
-         ownerName: 'Rahal Alwis',
-         user: {
-            _id: 'maba7488dadadwsdac',
-            email:'alwis@gmail.com',
-            password: 'asdaead',
-            type: 'restaurant'
-            },
-         restaurantName: 'Kadira Cafe',
-         imagePath: 'https://static.lieferando.de/images/restaurants/de/0ON1NQ5N/logo_465x320.png',
-         town: 'Matara',
-         street: 'Dharmapala Mawatha',
-         houseNumber: '128',
-         contactNumber: 745211521,
-         description: 'Description is here'
-      },
-      {
-         _id: 'dpekadna78455a2adasd',
-         ownerName: 'Kumara Athapaththu',
-         user: {
-            _id: 'rtr4552144dadwsdac',
-            email:'kumara@gmail.com',
-            password: 'pass123456',
-            type: 'restaurant'
-            },
-         restaurantName: 'Mayura Hotel',
-         imagePath: 'https://static.lieferando.de/images/restaurants/de/0ON1NQ5N/logo_465x320.png',
-         town: 'Matara',
-         street: 'Beach Road',
-         houseNumber: '42',
-         contactNumber: 7457456821,
-         description: 'Description is here what?'
-      }
-   ];
-
-   
-   res.status(200).json({
-      restaurants: restaurants
-   }); */
 }
 
 ///////////////////////////////////
@@ -81,40 +40,53 @@ exports.addRestaurant = (req, res, next) => {
       // });
    } */
    // To check image provided or not, if not so, throw the error
-   /* if (!req.file) {
+   if (!req.file) {
       const error= new Error('No image provided.');
       error.statusCode = 422;
       throw error;
-   } */
+   }
 
    //const imagePath = req.file.path;
-
+   let addRestaurantId;
    // Add Restaurant in DB
    const restaurant = new Restaurant({
       ownerName: req.body.ownerName,
-      user: req.body.user,
       restaurantName: req.body.restaurantName,
-      imagePath: req.body.imagePath,
+      email: req.body.email,
+      imagePath: req.file.path,
       town: req.body.town,
       street: req.body.street,
       houseNumber: req.body.houseNumber,
       contactNumber: req.body.contactNumber,
-      description: req.body.description
+      deliveryTime: req.body.deliveryTime,
+      deliveryStatus: req.body.deliveryStatus,
+      minAmount: +req.body.minAmount,
+      description: req.body.description,
+      createrId: req.userId,
+      userId: req.body.userId
    });
 
-   restaurant.save().then(result => {
-      console.log(result);
-      res.status(201).json({
-         message: 'Restaurant added Successfully',
-         restaurant: result
+   restaurant.save()
+      .then(result => {
+         addRestaurantId = result._id;
+         return user.findOne({_id: req.body.userId});
+      })
+      .then(user => {
+         user.restaurantId = addRestaurantId;
+         return user.save();
+      })
+      .then(response => {
+         res.status(201).json({
+            message: 'Restaurant added Successfully',
+            restaurant: response
+         });
+      })
+      .catch(err => {
+         if (!err.statusCode) {
+            err.statusCode = 500;
+         }
+         next(err);
       });
-
-   }).catch(err => {
-      if (!err.statusCode) {
-         err.statusCode = 500;
-      }
-      next(err);
-   });
 };
 
 /////////////////////////////////////////
@@ -142,10 +114,6 @@ exports.updateRestaurant = (req, res, next) => {
       const error = new Error('validation failed, entered data is incorrect.');
       error.statusCode = 422;
       throw error;
-      // return res.status(422).json({
-      //    message: 'validation failed, entered data is incorrect.',
-      //    errors: errors.array()
-      // });
    } */
 
    let imagePath = req.body.imagePath;
@@ -161,19 +129,23 @@ exports.updateRestaurant = (req, res, next) => {
 
 
    const ownerName = req.body.ownerName;
-   const user = req.body.user;
+   const email = req.body.email;
    const restaurantName = req.body.restaurantName;
+   const updatedImagePath = imagePath;
    const town = req.body.town;
    const street = req.body.street;
    const houseNumber = req.body.houseNumber;
    const contactNumber = req.body.contactNumber;
+   const deliveryTime = req.body.deliveryTime;
+   const deliveryStatus = req.body.deliveryStatus;
+   const minAmount = +req.body.minAmount;
    const description = req.body.description;
    
 
    Restaurant.findById(restaurantId)
       .then( restaurant => {
          if (!restaurant) {
-            const error = new Error('Could not find post.');
+            const error = new Error('Could not find the restaurant.');
             error.statusCode = 404;
             throw error;
          }
@@ -183,16 +155,18 @@ exports.updateRestaurant = (req, res, next) => {
          }
 
          restaurant.ownerName = ownerName;
-         restaurant.user = user;
+         restaurant.email = email;
          restaurant.restaurantName = restaurantName;
-         restaurant.imagePath = imagePath;
+         restaurant.imagePath = updatedImagePath;
          restaurant.town = town;
          restaurant.street = street;
          restaurant.houseNumber = houseNumber;
          restaurant.contactNumber = contactNumber;
+         restaurant.deliveryTime = deliveryTime;
+         restaurant.deliveryStatus = deliveryStatus;
+         restaurant.minAmount = minAmount;
          restaurant.description = description;
          return restaurant.save();
-
       })
       .then( result => {
          res.status(200).json({
@@ -256,14 +230,55 @@ exports.getRestaurant = (req, res, next) => {
    Restaurant.findById(restaurantId)
       .then( restaurant => {
          if (!restaurant) {
-            const error = new Error('Could not find post.');
+            const error = new Error('Could not find restaurant.');
             error.statusCode = 404;
             throw error;
          }
-         res.status(200).json({
+         res.status(200).json(
             // if we want to we can pass the message, but here I pass the data only
             restaurant
-         })
+         )
+      })
+      .catch(err => {
+         if (!err.statusCode) {
+            err.statusCode = 500;
+         }
+         next(err);
+      });
+};
+
+exports.setRestaurantIdtoUser = (req, res, next) => {
+   const restaurantEmail = req.params.email;
+   console.log(restaurantEmail);
+   let restaurantId;
+   // get email instead of userId:creater ID
+   Restaurant.findOne({email: restaurantEmail})
+      .then(restaurant => {
+         if (!restaurant) {
+            const error = new Error('Could not find Restaurant!.');
+            error.statusCode = 404;
+            throw error;
+         }
+
+         restaurantId = restaurant._id;
+
+         return user.findOne({email: restaurant.email});
+      })
+      .then(user => {
+         if (!user) {
+            const error = new Error('Could not find user!.');
+            error.statusCode = 404;
+            throw error;
+         }
+
+         user.restaurantId = restaurantId;
+
+         return user.save();
+      })
+      .then(result => {
+         res.status(200).json({
+            message: 'Restaurant Id is added to User model!'
+         });
       })
       .catch(err => {
          if (!err.statusCode) {

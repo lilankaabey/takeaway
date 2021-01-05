@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem .8rem;
+}
+
+.cart {
+  &__name {
+    display: flex;
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 700;
+    width: 100%;
+    background-color: var(--color-grey-light-2);
+    color: var(--color-grey-mid);
+
+    & > span {
+      margin: 0 auto;
+      padding: 1.5rem 0;
+    }
+  }
+
+  &__orders {
+    display: flex;
+    flex-direction: column;
+    min-height: 20rem;
+  }
+
+  &__items {
+    display: flex;
+    padding: 1rem .2rem;
+    font-family: inherit;
+    font-size: 1.1rem;
+    justify-content: space-between;
+  }
+
+  &__empty {
+    display: flex;
+    font-family: inherit;
+    font-size: 1.3rem;
+    min-height: 20rem;
+    align-items: center;
+    align-self: center;
+    & > span {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      color: var(--color-grey-mid);
+    }
+  }
+
+  &__hr {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+  }
+
+  &__message {
+    display: flex;
+    font-family: inherit;
+    font-size: 1rem;
+    align-items: center;
+    align-self: center;
+    padding: 1rem 0;
+
+    & > span {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      color: var(--color-grey-mid);
+    }
+
+  }
+
+  &__button-box {
+    display: flex;
+    padding: 1rem 1rem;
+  }
+
+  &__button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: 200;
+    line-height: 1.8rem;
+    color: var(--color-white);
+    background-color: var(--color-blue-1);
+    padding: 1rem 2rem;
+    width: 85%;
+    margin: 0 auto;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+      background-color: var(--color-blue-2);
+    }
+
+    &:disabled {
+      background-color: var(--color-grey-light-2);
+      color: var(--color-grey-mid);
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link,
+  &__link:link,
+  &__link:visited {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-blue-2);
+    color: var(--color-blue-2);
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-left: .5rem;
+    }
+
+    &:hover {
+      color: var(--color-blue-1);
+    }
+  }
+
+  &__icon {
+    fill: currentColor;
+    width: 1.5rem;
+    height: 1.5rem;
+
+  }
+
+
+}

@@ -1,0 +1,129 @@
+/////////////////////////////////////////////////////////
+//////////// User-Restaurant-Area ////////////////
+
+.restaurant {
+
+  &__link,
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__link:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
+  &__container {
+    border: 1px solid var(--color-grey-light);
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    background-color: var(--color-orange-light);
+
+    &:last-child {
+      margin-bottom: 2rem;
+     }
+
+    &:hover {
+      background-color: var(--color-grey-light-2);
+    }
+  }
+
+
+  &__image-box {
+    width: 100px;
+    height: 100px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__details {
+    padding-left: 2rem;
+    display: flex;
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-bottom: .6rem;
+  }
+
+  &__description {
+    font-size: 1.2rem;
+  }
+
+  &__delivery-details {
+    font-size: 1rem;
+  }
+}
+
+.delivery {
+  &__time {
+
+  }
+
+  &__status {
+    padding-left: 1rem;
+  }
+
+  &__minimum {
+    padding-left: 1rem;
+  }
+}
+
+///////////////////////////////////////////////////
+//////////// Admin-Restaurant-Area ////////////////
+
+// .admin-restaurant{
+//   &__container {
+//     display: flex;
+//     width: 80rem;
+//     background-color: var(--color-orange-light);
+//     justify-content: space-between;
+//     margin: 0 auto;
+//     padding: 1rem 0;
+//     border-bottom: 1px solid var(--color-grey-light);
+//   }
+
+//   &__details {
+//     font-size: 1.4rem;
+//     color: var(--color-grey-dark);
+//     font-weight: 200;
+//   }
+
+//   &__index {
+//     padding: 1rem;
+//   }
+
+//   &__name {
+//     padding: 1rem;
+//   }
+
+//   &__function {
+//     display: flex;
+//     align-items: center;
+//   }
+// }
+
+// .function {
+
+//   &__link {
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   &__icon {
+//     width: 1.75rem;
+//     height: 1.75rem;
+//     margin: 0 1rem;
+//   }
+// }

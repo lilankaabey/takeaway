@@ -1,0 +1,80 @@
+
+
+/////////////////////////////////////////
+////// Admin-Restaurants-List-Area //////
+/////////////////////////////////////////
+
+.admin-product-button-box {
+  width: 80rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-grey-light);
+}
+
+.add-product-btn {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 200;
+    line-height: 1.8rem;
+    color: var(--color-white);
+    background-color: var(--color-blue-1);
+    padding: 1rem;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+      background-color: var(--color-blue-2);
+    }
+}
+
+
+.admin-product{
+  &__container {
+    display: flex;
+    width: 80rem;
+    background-color: var(--color-orange-light);
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-grey-light);
+  }
+
+  &__details {
+    font-size: 1.4rem;
+    color: var(--color-grey-dark);
+    font-weight: 200;
+  }
+
+  &__index {
+    padding: 1rem;
+  }
+
+  &__name {
+    padding: 1rem;
+  }
+
+  &__function {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.function {
+
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0 1rem;
+  }
+}
+

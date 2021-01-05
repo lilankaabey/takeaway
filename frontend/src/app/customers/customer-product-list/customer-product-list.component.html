@@ -1,0 +1,37 @@
+<div class="restaurants">
+  <div class="restaurants__header">
+    <p>{{ restaurant.restaurantName }}</p>
+  </div>
+  <div class="restaurant__details">
+    <div class="restaurant__image-box">
+      <img class="restaurant__image" src="http://localhost:3000/{{ restaurant.imagePath }}" alt="{{ restaurant.restaurantName}}">
+    </div>
+    <div class="restaurant__details-box">
+      <div class="restaurant__name">{{ restaurant.restaurantName }}</div>
+      <div class="restaurant__description">
+        This restaurant provides stamps. To receive them via email, please make sure you're subscribed to our newsletter by checking the box for discounts, new restaurants updates and special offers at checkout.
+      </div>
+    </div>
+  </div>
+  <div class="restaurants__category">
+    <ul class="category__nav">
+      <li class="category__item">
+        <a href="" class="category__link">Menus</a>
+      </li>
+      <li class="category__item">
+        <a href="" class="category__link">Rice</a>
+      </li>
+      <li class="category__item">
+        <a href="" class="category__link">Pizza</a>
+      </li>
+      <li class="category__item">
+        <a href="" class="category__link">Burger</a>
+      </li>
+    </ul>
+  </div>
+  <div class="restaurants__list">
+    <app-product
+    *ngFor="let productElem of products; index as i"
+    [product]="productElem" [index]="i"></app-product>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="heading">
+    <div class="heading__1">Order Confirmed!</div>
+    <div class="heading__2">OrderId: {{order._id.toString()}}</div>
+  </div>
+  <div class="hr-box">
+    <hr class="hr">
+  </div>
+  <div class="table-container">
+    <div class="heading__3">Invoice</div>
+    <div class="hr-box">
+      <hr class="hr">
+    </div>
+    <table style="width:100%">
+      <tr>
+        <th>Product</th>
+        <th>quantity</th>
+        <th>Cost (Rs.)</th>
+      </tr>
+      <tr *ngFor="let product of order.products">
+        <td class="product">{{ product.product.name}}</td>
+        <td class="quantity">{{ product.quantity}}</td>
+        <td class="cost">{{ product.productsCost}}.00</td>
+      </tr>
+      <tr>
+        <td class="total__name">Total: </td>
+        <td colspan="2" class="total__cost">{{ order.totalCost}}.00</td>
+      </tr>
+    </table>
+  </div>
+  <div class="hr-box">
+    <hr class="hr">
+  </div>
+
+  <div class="heading__4">
+    <p>Enjoy your meal!</p>
+    <span>Thank you for using Takeaway.</span>
+  </div>
+</div>

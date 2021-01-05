@@ -1,0 +1,5 @@
+<div class="container">
+  <app-customer-order-form class="order-container" *ngIf="isOrderView"></app-customer-order-form>
+  <app-customer-product-list class="products-container" *ngIf="!isOrderView"></app-customer-product-list>
+  <app-cart class="cart-container"></app-cart>
+</div>
